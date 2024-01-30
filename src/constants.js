@@ -1,0 +1,4 @@
+const DELIVERY_BOY_SPEED = 20
+export {
+  DELIVERY_BOY_SPEED
+}
