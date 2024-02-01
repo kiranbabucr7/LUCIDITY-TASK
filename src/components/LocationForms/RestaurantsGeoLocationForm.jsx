@@ -61,11 +61,10 @@ const RestaurantsGeoLocationForm = ({
       };
       const locations = Array.from(
         { length: numberOflocations },
-        () => defaultLocationValues
-      );
-      const prepTime = Array.from(
-        { length: numberOflocations },
-        () => null
+        (item,index) => ({
+          ...defaultLocationValues,
+          name: `resturant ${index+1}`
+        })
       );
       updateRestaurantsLocations(locations);
     }

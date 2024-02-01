@@ -43,7 +43,10 @@ const ConsumerGeoLocationForm = ({
       };
       const locations = Array.from(
         { length: numberOflocations },
-        () => defaultLocationValues
+        (item,index) => ({
+          ...defaultLocationValues,
+          name: `customer ${index+1}`
+        })
       );
       updateConsumersLocations(locations);
     }

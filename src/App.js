@@ -60,8 +60,8 @@ function App() {
       <button className="submit-button" onClick={onClickSubmitButton}>
         submit
       </button>
-      {travelData ? <p>{JSON.stringify(travelData)}</p> : null}
-    </div>
+      {travelData ? [deliveryBoyLocation, ...travelData].map(loc => <p>{loc.name}</p>) : null}
+    </div>   
   );
 }
 

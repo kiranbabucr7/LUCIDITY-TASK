@@ -1,4 +1,4 @@
-import { min } from "lodash";
+import { min, max } from "lodash";
 import { DELIVERY_BOY_SPEED } from "../../constants";
 
 const validateGeoLocation = (loc) => {
@@ -37,11 +37,14 @@ const distanceBetweenTwoGeoLocations = (location1, location2) => {
   return distance;
 }
 
-const getTimeToTravelFromOneLocationToAnother= (location1, location2) => {
+const getTimeToTravelFromOneLocationToAnother= (location1, location2, currenttTotalTime) => {
   const distance = distanceBetweenTwoGeoLocations(location1,location2)
+  const maxPrepTime = max([location1.preparationTime,location2.preparationTime])
   let time = calculateTravelTime(distance)
-  if(location2.preparationTime > time){
-    time = location2.preparationTime
+  if(currenttTotalTime < maxPrepTime){
+    if(location2.preparationTime > time){
+      time = location2.preparationTime
+    }
   }
   return time
 }
@@ -58,12 +61,11 @@ const getDeliveryDetails = (d, r1, r2, c1, c2) =>  {
   const totalTimeTakenArray = paths.map((path) => {
     let time = 0
     path.forEach((loc,index) => {
-      time = time + getTimeToTravelFromOneLocationToAnother(loc, index === 0 ? d : path[index - 1]) 
+      time = time + getTimeToTravelFromOneLocationToAnother(index === 0 ? d : path[index - 1],loc, time) 
     })
     return time
   })
-  console.log(totalTimeTakenArray)
-  return totalTimeTakenArray.indexOf(min(totalTimeTakenArray))
+  return paths[totalTimeTakenArray.indexOf(min(totalTimeTakenArray))]
 }
 
 export {

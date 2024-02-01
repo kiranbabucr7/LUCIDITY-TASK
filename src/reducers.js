@@ -15,6 +15,7 @@ const initialState = {
     locations: [],
   },
   deliveryBoyLocation: {
+    name: 'DeliveryBoy',
     ...locationFormData,
   },
 };

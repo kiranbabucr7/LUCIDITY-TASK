@@ -1,0 +1,46 @@
+# Dependency directories
+/node_modules
+
+# Build artifacts
+/build
+/dist
+
+# IDE and editor files
+/.vscode
+/.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*.lock
+.DS_Store
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Test coverage
+/coverage
+
+# Build output
+/build/
+
+# IDE-specific files
+.idea/
+
+# Miscellaneous
+*.log
+*.pyc
+*.swp
+*.db
+
+# OS-generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
