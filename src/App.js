@@ -51,7 +51,6 @@ function App() {
     setTravelData(travelDetails);
   };
   const travelLocations = [deliveryBoyLocation, ...travelData.path?travelData.path:[]]
-  console.log(travelData.path)
   return (
     <div className="App">
       <SingleGeoLocationForm header={"Delivery Boy"} />
