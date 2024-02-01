@@ -41,7 +41,7 @@ const DeliveryBoyLocationForm = ({
   };
 
   return (
-    <div className="geo-location-form">
+    <div className="geo-location-form grey-border">
       <p>{header}</p>
       <div className="inputs-container">
         <div className="input-container">

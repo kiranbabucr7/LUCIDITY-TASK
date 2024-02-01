@@ -7,7 +7,7 @@ import ConsumerGeoLocationForm from "./components/LocationForms/ConsumerGeoLocat
 import { getDeliveryDetails } from "./components/LocationForms/utils";
 
 function App() {
-  const [travelData, setTravelData] = useState(null);
+  const [travelData, setTravelData] = useState({});
   const restaurants = useSelector((state) => state.restaurants);
   const consumers = useSelector((state) => state.consumers);
   const deliveryBoyLocation = useSelector((state) => state.deliveryBoyLocation);
@@ -50,17 +50,24 @@ function App() {
     );
     setTravelData(travelDetails);
   };
+  const travelLocations = [deliveryBoyLocation, ...travelData.path?travelData.path:[]]
+  console.log(travelData.path)
   return (
     <div className="App">
       <SingleGeoLocationForm header={"Delivery Boy"} />
-      <div style={{ display: "flex", gap: "30px" }}>
-        <RestaurantsGeoLocationForm header={"Restaurants"} />
-        <ConsumerGeoLocationForm header={"Consumers"} />
-      </div>
+      <ConsumerGeoLocationForm header={"Consumers"} />
+      <RestaurantsGeoLocationForm header={"Restaurants"} />
       <button className="submit-button" onClick={onClickSubmitButton}>
         submit
       </button>
-      {travelData ? [deliveryBoyLocation, ...travelData].map(loc => <p>{loc.name}</p>) : null}
+      {travelData.path &&
+        <div style={{marginLeft:'10px'}}>
+          <p>The shortest path with minimun time {travelData.time} mins is:</p>
+          <p>
+            {travelData ? travelLocations.map((loc, index) => <span>{`${loc.name}${travelData?.path?.length !== index ? ' -> ' : ''}`}</span>) : null}
+          </p>
+        </div>
+      }
     </div>   
   );
 }

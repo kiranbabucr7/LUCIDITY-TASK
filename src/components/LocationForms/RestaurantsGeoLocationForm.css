@@ -1,5 +1,5 @@
 .multiple-geo-location-form {
-  max-width: 400px;
+  width: 400px;
   margin: 10px 10px;
 }
 
@@ -28,4 +28,11 @@ input.error {
 .error-msg {
   color: red;
   margin-top: 5px;
+}
+
+.grey-border {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px; /* Adjust padding as needed */
+  box-shadow: 0 2px 2px rgba(70, 70, 70, 0.623); /* Subtle box shadow */
 }

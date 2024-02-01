@@ -53,17 +53,13 @@ const ConsumerGeoLocationForm = ({
   }, [numberOflocations]);
 
   return (
-    <div className="multiple-geo-location-form">
+    <div className="multiple-geo-location-form grey-border">
       <p>{header}</p>
       <label>
         Number of Geo Locations:
-        <input
-          style={{marginLeft: "10px"}}
-          disabled={true}
-          type="number"
-          value={numberOflocations}
-          onChange={(e) => updateNoOfConsumers(parseInt(e.target.value))}
-        />
+        <span style={{marginLeft: "10px"}}>
+          {numberOflocations}
+        </span>
       </label>
       {consumerLocation?.map((location, index) => (
         <div key={index} className="location-inputs">

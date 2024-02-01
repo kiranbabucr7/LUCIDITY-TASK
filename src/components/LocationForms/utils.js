@@ -65,7 +65,7 @@ const getDeliveryDetails = (d, r1, r2, c1, c2) =>  {
     })
     return time
   })
-  return paths[totalTimeTakenArray.indexOf(min(totalTimeTakenArray))]
+  return {path: paths[totalTimeTakenArray.indexOf(min(totalTimeTakenArray))], time: min(totalTimeTakenArray)}
 }
 
 export {

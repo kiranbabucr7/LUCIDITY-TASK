@@ -49,6 +49,9 @@
   margin-left: 10px;
 }
 
+.submit-button{
+  width: 420px;
+}
 .submit-button:hover {
   background-color: #45a049;
 }
